@@ -1,39 +1,48 @@
 {
-  "publisher": "antfu",
-  "name": "ext-name",
-  "displayName": "ext-name",
-  "version": "0.0.0",
-  "private": true,
+  "publisher": "Athu",
+  "name": "img2webp",
+  "displayName": "img2webp",
+  "version": "1.0.0",
+  "private": false,
   "packageManager": "pnpm@8.1.1",
   "description": "",
-  "author": "Anthony Fu <anthonyfu117@hotmail.com>",
+  "author": "Athu <huakucha95@163.com>",
   "license": "MIT",
-  "funding": "https://github.com/sponsors/antfu",
-  "homepage": "https://github.com/antfu/ext-name#readme",
+  "homepage": "https://github.com/MagicalZhu/img2webp#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/antfu/ext-name"
+    "url": "https://github.com/MagicalZhu/img2webp"
   },
   "bugs": {
-    "url": "https://github.com/antfu/ext-name/issues"
-  },
-  "sponsor": {
-    "url": "https://github.com/sponsors/antfu"
+    "url": "https://github.com/MagicalZhu/img2webp/issues"
   },
   "categories": [
     "Other"
   ],
   "main": "./dist/index.js",
-  "icon": "res/icon.png",
   "files": [
     "dist"
   ],
   "engines": {
     "vscode": "^1.69.0"
   },
-  "activationEvents": [
-    "onStartupFinished"
-  ],
+  "activationEvents": [],
+  "contributes": {
+    "commands": [
+      {
+        "command": "convert",
+        "title": "Convert-To-Webp"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "convert",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
   "scripts": {
     "build": "tsup src/index.ts --external vscode",
     "dev": "nr build --watch",
@@ -60,5 +69,10 @@
     "vite": "^4.2.1",
     "vitest": "^0.29.8",
     "vsce": "^2.15.0"
+  },
+  "dependencies": {
+    "@squoosh/lib": "^0.5.3",
+    "@types/recursive-readdir": "^2.2.1",
+    "recursive-readdir": "^2.2.3"
   }
 }
