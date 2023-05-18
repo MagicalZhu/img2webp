@@ -42,25 +42,21 @@ function ignoreFunc(file: string, stats: fs.Stats) {
 
 function activate(context: ExtensionContext) {
   const disposable = commands.registerCommand('convert', async (obj) => {
-    const filePath = obj.path
+    const filePath = obj.fsPath
     const ext = path.extname(filePath)
-
     // folder
-    if (ext === '') {
+    if (fs.statSync(filePath).isDirectory()) {
       recursive(filePath, [ignoreFunc], (err, files) => {
         if (err)
           window.showErrorMessage('发生错误了', err.message)
         compress(files)
       })
     }
-
-    // file
-    else if (supportExtensions.includes(ext)) {
-      compress([filePath])
-    }
-
-    else {
-      window.showErrorMessage('not support file')
+    if (fs.statSync(filePath).isFile()) {
+      if (supportExtensions.includes(ext))
+        compress([filePath])
+      else
+        window.showErrorMessage('not support file')
     }
   })
   context.subscriptions.push(disposable)

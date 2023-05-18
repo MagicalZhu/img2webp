@@ -2,7 +2,7 @@
   "publisher": "Athu",
   "name": "img2webp",
   "displayName": "img2webp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "packageManager": "pnpm@8.1.1",
   "description": "",
