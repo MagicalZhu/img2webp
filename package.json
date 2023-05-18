@@ -2,7 +2,7 @@
   "publisher": "Athu",
   "name": "img2webp",
   "displayName": "img2webp",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": false,
   "packageManager": "pnpm@8.1.1",
   "description": "",
@@ -48,8 +48,8 @@
     "dev": "nr build --watch",
     "lint": "eslint .",
     "vscode:prepublish": "nr build",
-    "publish": "vsce publish --no-dependencies",
-    "pack": "vsce package --no-dependencies",
+    "publish": "vsce publish",
+    "pack": "vsce package",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
     "release": "bumpp && nr publish"
@@ -68,7 +68,10 @@
     "typescript": "^5.0.3",
     "vite": "^4.2.1",
     "vitest": "^0.29.8",
-    "vsce": "^2.15.0"
+    "vsce": "^2.15.0",
+    "@squoosh/lib": "^0.5.3",
+    "@types/recursive-readdir": "^2.2.1",
+    "recursive-readdir": "^2.2.3"
   },
   "dependencies": {
     "@squoosh/lib": "^0.5.3",
